@@ -274,7 +274,31 @@ window.addEventListener('load', () => {
     addScrollAnimations();
 });
 
+// Load YouTube Video
+function loadVideo() {
+    const container = document.getElementById('video-container');
+    const thumbnail = document.getElementById('video-thumbnail');
+    
+    if (container && thumbnail) {
+        // Create iframe
+        const iframe = document.createElement('iframe');
+        iframe.width = '100%';
+        iframe.height = '100%';
+        iframe.src = 'https://www.youtube.com/embed/7U_7rPdRVXw?autoplay=1';
+        iframe.title = 'Proceso de Creación de Joyería';
+        iframe.frameBorder = '0';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        
+        // Replace content with iframe
+        container.innerHTML = '';
+        container.appendChild(iframe);
+        container.onclick = null; // Remove click handler
+    }
+}
+
 // Export functions for inline event handlers
 window.showPage = showPage;
 window.toggleMusic = toggleMusic;
 window.filterProducts = filterProducts;
+window.loadVideo = loadVideo;
