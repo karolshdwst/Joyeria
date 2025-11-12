@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setora - Joyería de Lujo</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left"></div>
+            
+            <div class="header-center">
+                <h1 class="logo" onclick="showPage('about')">SETORA</h1>
+                
+                <nav class="nav">
+                    <button class="nav-link" data-tab="about" onclick="showPage('about')">Sobre Nosotros</button>
+                    <button class="nav-link" data-tab="products" onclick="showPage('products')">Productos</button>
+                    <button class="nav-link" data-tab="contact" onclick="showPage('contact')">Contacto</button>
+                </nav>
+            </div>
+
+            <div class="header-right">
+                <button class="music-btn" onclick="toggleMusic()" aria-label="Reproducir música">
+                    <svg class="music-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18V5l12-2v13"></path>
+                        <circle cx="6" cy="18" r="3"></circle>
+                        <circle cx="18" cy="16" r="3"></circle>
+                    </svg>
+                    <svg class="pause-icon hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="6" y="4" width="4" height="16"></rect>
+                        <rect x="14" y="4" width="4" height="16"></rect>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- About Page -->
+        <div id="about-page" class="page active">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <img src="https://images.unsplash.com/photo-1758995116142-c626a962a682?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBqZXdlbHJ5JTIwcmluZ3xlbnwxfHx8fDE3NjI5Mjg5NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Luxury jewelry" class="hero-image">
+                <div class="hero-overlay">
+                    <h2 class="hero-title">Artesanía que cuenta historias</h2>
+                </div>
+            </section>
+
+            <!-- Video Section -->
+            <section class="video-section">
+                <h3 class="section-title">Nuestro Proceso de Creación</h3>
+                
+                <div class="video-container">
+                    <img src="https://images.unsplash.com/photo-1760993333410-5df5e722e97e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqZXdlbHJ5JTIwYXJ0aXNhbiUyMGNyYWZ0aW5nfGVufDF8fHx8MTc2MjkyOTg4M3ww&ixlib=rb-4.1.0&q=80&w=1080" alt="Jewelry crafting process" class="video-thumbnail">
+                    <button class="play-button" aria-label="Reproducir video">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Narrative Section -->
+            <section class="narrative-section">
+                <p class="narrative-text">
+                    En Setora, cada pieza de joyería es más que un adorno; es un testamento de 
+                    tradición ancestral y compromiso con la excelencia. Nuestros artesanos, 
+                    herederos de técnicas centenarias, transforman metales preciosos y gemas 
+                    éticamente sourced en obras de arte que trascienden el tiempo.
+                </p>
+                <p class="narrative-text">
+                    Cada diamante, cada perla, cada gramo de oro es seleccionado con una 
+                    devoción meticulosa por la sostenibilidad y la belleza auténtica. Creamos 
+                    joyas que no solo adornan, sino que narran historias de amor, legado y 
+                    momentos inolvidables.
+                </p>
+                <p class="narrative-text italic">
+                    Porque en Setora, creemos que el verdadero lujo reside en la transparencia, 
+                    la ética y la creación consciente.
+                </p>
+            </section>
+        </div>
+
+        <!-- Products Page -->
+        <div id="products-page" class="page">
+            <div class="products-container">
+                <h2 class="page-title">Nuestra Colección</h2>
+                <p class="page-subtitle">Piezas únicas creadas con pasión y dedicación</p>
+
+                <!-- Filters -->
+                <div class="filters">
+                    <button class="filter-btn active" data-category="all" onclick="filterProducts('all')">Todos</button>
+                    <button class="filter-btn" data-category="rings" onclick="filterProducts('rings')">Anillos</button>
+                    <button class="filter-btn" data-category="necklaces" onclick="filterProducts('necklaces')">Collares</button>
+                    <button class="filter-btn" data-category="earrings" onclick="filterProducts('earrings')">Pendientes</button>
+                </div>
+
+                <!-- Product Grid -->
+                <div id="products-grid" class="products-grid">
+                    <!-- Products will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact-page" class="page">
+            <div class="contact-container">
+                <h2 class="page-title">Contáctanos</h2>
+                <p class="page-subtitle">Estamos aquí para ayudarte a encontrar la pieza perfecta</p>
+
+                <div class="contact-content">
+                    <!-- Form Section -->
+                    <div class="contact-form-section">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre completo" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Mensaje</label>
+                                <textarea id="message" name="message" class="form-textarea" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info Section -->
+                    <div class="contact-info-section">
+                        <div class="info-block">
+                            <h3 class="info-title">Información de Contacto</h3>
+                            <div class="info-content">
+                                <p class="info-item">
+                                    <span class="info-label">Dirección:</span>
+                                    Paseo de la Castellana 123<br>
+                                    28046 Madrid, España
+                                </p>
+                                <p class="info-item">
+                                    <span class="info-label">Email:</span>
+                                    <a href="mailto:contacto@setora.com" class="info-link">
+                                        contacto@setora.com
+                                    </a>
+                                </p>
+                                <p class="info-item">
+                                    <span class="info-label">Teléfono:</span>
+                                    <a href="tel:+34912345678" class="info-phone">
+                                        +34 91 234 5678
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <h3 class="info-title">Horario de Atención</h3>
+                            <div class="info-content">
+                                <p>Lunes - Viernes: 10:00 - 20:00</p>
+                                <p>Sábado: 11:00 - 19:00</p>
+                                <p>Domingo: Cerrado</p>
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <h3 class="info-title">Síguenos</h3>
+                            <div class="social-links">
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </a>
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                    </svg>
+                                </a>
+                                <a href="https://wa.me/34912345678" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 2L11 13"></path>
+                                        <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#" onclick="showPage('about'); return false;" class="footer-link">Sobre Nosotros</a>
+                <a href="#" onclick="showPage('products'); return false;" class="footer-link">Productos</a>
+                <a href="#" onclick="showPage('contact'); return false;" class="footer-link">Contacto</a>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>&copy; 2025 Setora. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
