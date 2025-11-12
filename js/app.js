@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeProducts();
     setupFormHandler();
     showPage('about');
+    initMusic();
 });
 
 // Navigation Functions
@@ -86,21 +87,42 @@ function showPage(pageName) {
 
 // Music Toggle
 function toggleMusic() {
-    isMusicPlaying = !isMusicPlaying;
-    
+    const audio = document.getElementById('background-music');
     const musicIcon = document.querySelector('.music-icon');
-    const pauseIcon = document.querySelector('.pause-icon');
+    const muteIcon = document.querySelector('.mute-icon');
     
-    if (isMusicPlaying) {
-        musicIcon.classList.add('hidden');
-        pauseIcon.classList.remove('hidden');
-        // Aquí puedes agregar lógica para reproducir música
-        console.log('Música reproduciendo...');
+    if (!audio) {
+        console.log('No se encontró el elemento de audio');
+        return;
+    }
+    
+    if (audio.paused) {
+        // Reproducir música
+        audio.play().then(() => {
+            isMusicPlaying = true;
+            musicIcon.classList.remove('hidden');
+            muteIcon.classList.add('hidden');
+            console.log('Música reproduciendo...');
+        }).catch(error => {
+            console.log('Error al reproducir música:', error);
+            alert('Por favor, permite la reproducción de audio en tu navegador');
+        });
     } else {
-        musicIcon.classList.remove('hidden');
-        pauseIcon.classList.add('hidden');
-        // Aquí puedes agregar lógica para pausar música
+        // Pausar música
+        audio.pause();
+        isMusicPlaying = false;
+        musicIcon.classList.add('hidden');
+        muteIcon.classList.remove('hidden');
         console.log('Música pausada');
+    }
+}
+
+// Auto-start music with user interaction
+function initMusic() {
+    const audio = document.getElementById('background-music');
+    if (audio) {
+        audio.volume = 0.4; // Volumen al 40% por defecto
+        console.log('Audio inicializado');
     }
 }
 
